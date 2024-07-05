@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="sidebar">
+    <button class="btn btn-primary" (click)="openTaskModal()">New Task</button>
+  </div>
+  <div class="content">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let day of days">
+        <div class="card">
+          <div class="card-header">
+            {{ day.date | date: 'fullDate' }}
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngIf="day.tasks.length === 0">No tasks</li>
+            <li class="list-group-item" *ngFor="let task of day.tasks">{{ task.name }}: {{ task.description }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #taskModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">New Task</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="taskName">Task Name</label>
+        <input type="text" class="form-control" id="taskName" [(ngModel)]="newTask.name" name="taskName">
+      </div>
+      <div class="form-group">
+        <label for="taskDescription">Task Description</label>
+        <textarea class="form-control" id="taskDescription" [(ngModel)]="newTask.description" name="taskDescription"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="taskDay">Day</label>
+        <select class="form-control" id="taskDay" [(ngModel)]="selectedDay" name="taskDay">
+          <option *ngFor="let day of days" [ngValue]="day">{{ day.date | date: 'fullDate' }}</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cancel click')">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="addTask(modal)">OK</button>
+  </div>
+</ng-template>
