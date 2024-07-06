@@ -12,6 +12,7 @@ export class PdfUploadComponent {
   selectedFile: File | null = null;
   message: string="";
   @ViewChild("takeInput", {static: false}) InputVar: any;
+  PdfText: string="";
 
   constructor(private pdfUploadService: PdfService) { }
 
@@ -27,6 +28,7 @@ export class PdfUploadComponent {
           console.log('Upload successful', response);
          this.InputVar.nativeElement.value = "";
          this.message= "Upload successful"
+          this.onGetText(generatedId)
         },
         error => {
           console.error('Upload failed', error);
@@ -34,5 +36,18 @@ export class PdfUploadComponent {
         }
       );
     }
+  }
+
+  onGetText(id:number) {
+    this.pdfUploadService.getPdf(id).subscribe(
+      response => {
+        console.log('Get successful', response);
+        this.PdfText = response.text;
+      },
+      error => {
+        console.error('Get failed', error);
+        this.PdfText = "Get failed" + error.message;
+      }
+    );
   }
 }
