@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>Upload PDF</h2>
+  <input #takeInput id="pdf_file" type="file" (change)="onFileSelected($event)" />
+  <button (click)="onUpload()">Upload</button>
+
+  <p>
+    {{ message}}
+  </p>
+</div>

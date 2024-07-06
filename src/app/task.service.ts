@@ -14,15 +14,9 @@ interface Task {
   providedIn: 'root'
 })
 export class TaskService {
-  private localh =  ""
   private apiUrl = ""
 
   constructor(private http: HttpClient) {
-    this.localh = window.location.origin
-      .replace(":"+window.location.port,"")
-      .replace("https://","")
-      .replace("http://","");
-
    this.apiUrl = window.location.origin.replace(":4200","")+'/api/tasks';
   }
 
