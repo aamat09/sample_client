@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import { PdfService } from '../pdf.service';
+import { PdfService } from '../../services/pdf.service';
 
 @Component({
   selector: 'app-pdf-upload',

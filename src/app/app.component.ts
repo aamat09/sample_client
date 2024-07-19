@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {ScheduleComponent} from "./schedule/schedule.component";
+import {ScheduleComponent} from "./components/schedule/schedule.component";
 
 @Component({
   selector: 'app-root',

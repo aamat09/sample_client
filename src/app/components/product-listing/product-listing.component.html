@@ -1,0 +1,24 @@
+<div>
+  <h2>Clothes</h2>
+  <ul>
+    <li *ngFor="let clothe of clothes">
+      <img [src]="clothe.imageUrl" alt="{{ clothe.title }}" />
+      <p>{{ clothe.title }} - {{ clothe.price }}</p>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h2>Nike Shoes</h2>
+  <ul>
+    <li *ngFor="let shoe of paginatedShoes[currentPage]">
+      <img [src]="shoe.imageUrl" alt="{{ shoe.title }}" />
+      <p>{{ shoe.title }} - {{ shoe.price }}</p>
+    </li>
+  </ul>
+
+  <div>
+    <button (click)="previousPage()" [disabled]="currentPage === 0">Previous</button>
+    <button (click)="nextPage()" [disabled]="currentPage === paginatedShoes.length - 1">Next</button>
+  </div>
+</div>
