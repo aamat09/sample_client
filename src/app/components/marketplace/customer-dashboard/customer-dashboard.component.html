@@ -1,0 +1,11 @@
+<div class="customer-dashboard">
+  <h1>Favorites</h1>
+  <div *ngFor="let favorite of favorites">
+    {{ favorite.car.make }} {{ favorite.car.model }}
+  </div>
+
+  <h1>All Cars</h1>
+  <div *ngFor="let car of cars">
+    {{ car.make }} {{ car.model }}
+  </div>
+</div>

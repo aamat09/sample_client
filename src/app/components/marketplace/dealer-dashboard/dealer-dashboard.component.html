@@ -1,0 +1,11 @@
+<div class="dealer-dashboard">
+  <h1>Inventory</h1>
+  <div *ngFor="let car of inventory">
+    {{ car.make }} {{ car.model }}
+  </div>
+
+  <h1>Weekly Sales</h1>
+  <div *ngFor="let sale of sales">
+    {{ sale.make }} {{ sale.model }} - Sold on {{ sale.saleDate }}
+  </div>
+</div>
