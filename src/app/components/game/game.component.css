@@ -1,0 +1,17 @@
+.game-container {
+  text-align: center;
+}
+
+.piles {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pile {
+  margin: 0 10px;
+}
+
+.winner {
+  margin-top: 20px;
+}

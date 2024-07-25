@@ -1,0 +1,26 @@
+<div class="game-container">
+  <h1>Nim Game</h1>
+  <div *ngIf="winner" class="winner">
+    <h2>{{ winner }} wins!</h2>
+    <button mat-raised-button color="primary" (click)="resetGame()">Restart</button>
+  </div>
+
+  <div *ngIf="!winner">
+    <h2>{{ currentPlayer }}'s Turn</h2>
+    <div style="display: block;" class="piles">
+      <div *ngFor="let pile of piles; let i = index" style="display: block !important;" class="pile">
+
+        <mat-card>
+            <mat-card-title>Pile {{ i + 1 }}: {{ pile }}</mat-card-title>
+          <mat-card-content>
+            <button mat-icon-button color="warn" *ngFor="let _ of [].constructor(pile)"
+                    (click)="removeSticks(i, 1)">
+              <mat-icon>remove_circle</mat-icon>
+            </button>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+    </div>
+  </div>
+</div>

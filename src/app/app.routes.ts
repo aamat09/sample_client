@@ -5,6 +5,7 @@ import {ProductListingComponent} from "./components/product-listing/product-list
 import {LoginComponent} from "./components/marketplace/login/login.component";
 import {CustomerDashboardComponent} from "./components/marketplace/customer-dashboard/customer-dashboard.component";
 import {DealerDashboardComponent} from "./components/marketplace/dealer-dashboard/dealer-dashboard.component";
+import {GameComponent} from "./components/game/game.component";
 
 export const routes: Routes = [
   {
@@ -15,5 +16,6 @@ export const routes: Routes = [
   {path: 'scraping', component: ProductListingComponent},
   { path: 'marketplace', component: LoginComponent },
   { path: 'marketplace/customer-dashboard', component: CustomerDashboardComponent },
-  { path: 'marketplace/dealer-dashboard', component: DealerDashboardComponent }
+  { path: 'marketplace/dealer-dashboard', component: DealerDashboardComponent },
+  { path: 'game', component:GameComponent}
 ];
